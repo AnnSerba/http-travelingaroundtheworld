@@ -1,0 +1,101 @@
+body {
+            font-family: Trebuchet MS, Arial, Times New Roman;
+            font-size: 12px;
+            background-image: url("images/background.png");
+            -moz-background-size: 100%; /* Firefox 3.6+ */
+            -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+            -o-background-size: 100%; /* Opera 9.6+ */
+            background-size: 40%; /* Современные браузеры */
+}
+ 
+#container {
+            background: rgba(255,255,255,.2);
+            margin: 15px auto;
+            width: 900;
+            height: 1250;
+}
+#navigation {
+            background: rgba(255,255,255,.7) ;
+            width: 100%;
+            height: auto;
+            margin: 15px auto;
+}
+#menu {
+            background: rgba(255,255,255,.7);
+            float: right;
+            width: 240px;
+            height: auto;
+}
+ 
+#content {
+            background: rgba(255,255,255,.7);
+            float: left;
+            width: 650px;
+            height: 1150px;
+}
+
+#rotator {
+    position:relative; 
+    width: 630px;
+    height: 149px;
+    margin: 10px 10px;
+}
+#rotator #list {
+    float:left; 
+    position:absolute; 
+
+}
+.show{
+    z-index:500;
+    margin:0;       
+}
+#clear {
+            clear:both;
+}
+ 
+#footer {
+            background: rgba(255,255,255,.8);
+            width: 100%;
+            height: auto;
+            margin-top: 15px;
+            text-align:center;
+}
+
+#buttons input{
+      width: 220px;
+      margin: 10px 10px;
+}
+.preview{
+     position:relative; 
+    float: top;
+    width: 640px;
+    height: 1040px;
+}
+.row{
+    width: 640px;
+    height: 120px;
+    margin: 10px 10px;
+}
+.elementleft{
+    width: 310px;
+    height: 220px;
+    float: left;
+    margin: 5px 5px;
+}
+.elementright{
+    width: 310px;
+    height: 220px;
+     float: right;
+     margin: 5px 5px;
+}
+.pagebutton {
+     position:relative;
+     float: center;
+     text-align:center;
+}
+.img{
+
+}
+.txt{
+    text-align:center;
+}

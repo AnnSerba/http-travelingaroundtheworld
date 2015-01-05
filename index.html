@@ -1,0 +1,114 @@
+<html>
+      <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>Путешествие по миру</title>
+            <link rel="stylesheet" type="text/css" href="mystyle.css" />
+            <!-- 1. Подключим библиотеку jQuery (без нее jQuery UI не будет работать) -->
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+            <!-- 2. Подключим jQuery UI -->
+            <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+            <!--  -->
+            <script src="JavaScript.js"></script>
+      </head>
+<body onload="returnpage();genereIelement(page);">
+      <div id="container">
+            <div id="navigation" class="ui-widget ui-corner-all">
+                  <a href="index.html" > 
+                        <img  src="http://mirputeshestvii.ru/uploads/images/publications/how_to_travel/travel.jpg" width="50" height="50"  >
+                  </a> 
+            </div>
+
+ 
+            <div id="menu" class="ui-widget ui-corner-all">Меню
+                  <div id='buttons'>
+                        <div>
+                              <input type='button' value='Части света' onclick='start()'/>
+                        </div>
+                        <div>
+                              <input type='button' value='Сооружения' onclick='start()'/>
+                        </div>
+                        <div>
+                              <input type='button' value='Природа' onclick='start()'/>
+                        </div>
+                  </div>
+                  
+            </div>
+ 
+            <div id="content" class="ui-widget ui-corner-all">
+                  <div id="rotator" class="ui-widget ui-corner-all">
+                        <div class="show">
+                              <div id ='list'>
+                                    <img src="images/1.jpg" class="ui-widget ui-corner-all" alt="pic1" width=100% height=100% />
+                              </div>
+                              <div id ='list' >
+                                    <img src="images/2.jpg" class="ui-widget ui-corner-all" alt="pic2" width=100% height=100% />
+                              </div>
+                              <div id ='list' >
+                                    <img src="images/3.jpg" class="ui-widget ui-corner-all" alt="pic3" width=100% height=100% /> 
+                              </div>
+                              
+                        </div>
+                  </div>
+
+                  <div id ='preview'>
+                        <div class="row">
+                              <div class="elementleft"> 
+                                    <div id='img1' class="img"></div>
+                                    <div id='txt1' class="txt"></div>
+                              </div>
+                              <div class="elementright"> 
+                                    <div id='img2' class="img"></div>
+                                    <div id='txt2' class="txt"></div>
+                              </div>   
+                        </div>
+                        <div class="row">
+                              <div class="elementleft"> 
+                                    <div id='img3' class="img"></div>
+                                    <div id='txt3' class="txt"></div>
+                              </div>
+                              <div class="elementright"> 
+                                    <div id='img4' class="img"></div>
+                                    <div id='txt4' class="txt"></div>
+                              </div> 
+                        </div>
+                        <div class="row">
+                              <div class="elementleft"> 
+                                    <div id='img5' class="img"></div>
+                                    <div id='txt5' class="txt"></div>
+                              </div>
+                              <div class="elementright"> 
+                                    <div id='img6' class="img"></div>
+                                    <div id='txt6' class="txt"></div>
+                              </div> 
+                        </div>
+                        <div class="row">
+                              <div class="elementleft"> 
+                                    <div id='img7' class="img"></div>
+                                    <div id='txt7' class="txt"></div>
+                              </div>
+                              <div class="elementright">
+                                    <div id='img8' class="img"></div>
+                                    <div id='txt8' class="txt"></div>
+                              </div>  
+                        </div>
+                      
+                        <input type='button' id='Back' value='Назад' width="50px" height="20px" class="pagebutton" onclick="page>1?{page--;genereIelement(page)};"/>
+                        <span id='numberpage'class="pagebutton" width="50" height="20"></span>
+                        <input type='button' id='Next' value='Далее'width="50" height="20" class="pagebutton" onclick="page<3?{page++;genereIelement(page);}"/>
+                        
+                  </div>
+                  
+            </div>
+ 
+            <div id="clear">
+ 
+            </div>
+                       
+            <div id="footer" class="ui-widget ui-corner-all">(c) 2015 - Мировое путешествие
+ 
+            </div>
+      </div>
+ 
+</body>
+</html>

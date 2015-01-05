@@ -1,0 +1,61 @@
+{
+DataBase:
+[
+{
+number:1,
+title:"Оперный театр Пекина",
+team:"Азия",
+image:"images/opernyj-teatr/opernyj-teatr.jpg",
+text:"",
+},
+{
+number:2,
+title:"Королевская Миля",
+team:"Европа",
+image:"images/korolevskaya-milya/korolevskaya-milya.jpg",
+text:"",
+},
+{
+number:3,
+title:"Плавучие острова",
+team:"Азия",
+image:"images/plavuchie-ostrova/plavuchie-ostrova.jpg",
+text:"",
+},
+{
+number:4,
+title:"Пляж Горячей воды",
+team:"Европа",
+image:"images/plyazh-goryachej-vody/plyazh-goryachej-vody.jpg",
+text:"",
+},
+{
+number:5,
+title:"Оперный театр Пекина",
+team:"Азия",
+image:"images/opernyj-teatr/opernyj-teatr.jpg",
+text:"",
+},
+{
+number:6,
+title:"Королевская Миля",
+team:"Европа",
+image:"images/korolevskaya-milya/korolevskaya-milya.jpg",
+text:"",
+},
+{
+number:7,
+title:"Оперный театр Пекина",
+team:"Азия",
+image:"images/opernyj-teatr/opernyj-teatr.jpg",
+text:"",
+},
+{
+number:8,
+title:"Королевская Миля",
+team:"Европа",
+image:"images/korolevskaya-milya/korolevskaya-milya.jpg",
+text:"",
+}
+]
+}
