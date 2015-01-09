@@ -1,15 +1,4 @@
-var i=0;
-var page=1;
-function returnpage(){
-	document.getElementById('numberpage').innerHTML="---"+page+"---";
-}
-$(document).ready(function() {
-   	$("#imgMenu1,#imgMenu2,#imgMenu3").button();
-});
 
-$(document).ready(function() {
-   	$("#st,#b1,#b2").button();
-});
 function theRotator() {
 	// Устанавливаем прозрачность всех картинок в 0
 	$('#rotator #list').css({opacity: 0.0});
@@ -19,7 +8,7 @@ function theRotator() {
  
 	// Вызываем функцию rotate для запуска слайдшоу, 5000 = смена картинок происходит раз в 5 секунд
 	setInterval('rotate()',5000);
-}
+};
 
 function rotate() {	
 	// Берем первую картинку
@@ -40,36 +29,117 @@ function rotate() {
 	current.animate({opacity: 0.0}, 1000).removeClass('show');
 };
 
-$(document).ready(function() {		
+$(document).ready(
+  function() {		
 	// Запускаем слайдшоу
-	theRotator();
+	  theRotator();
+    $("#imgMenu1,#imgMenu2,#imgMenu3").button();
+    $("#st,#b1,#b2").button();
+  
+    
+    $('#ddmenu li').hover(
+      function () {
+        clearTimeout(
+          $.data(this,'timer'));
+          $('ul',this).stop(true,true).slideDown(200);
+      }, 
+      function () {
+        $.data(this,'timer', setTimeout(
+          $.proxy(
+            function() {
+              $('ul',this).stop(true,true).slideUp(200);
+            }, this), 100));
+      }
+  );
+
 });
-function genereIelement(str){
-	start(i+str-1,'img1','txt1');
-	start(i+str,'img2','txt2');
-	start(i+str+1,'img3','txt3');
-	start(i+str+2,'img4','txt4');
-	start(i+str+3,'img5','txt5');
-	start(i+str+4,'img6','txt6');
-	start(i+str+5,'img7','txt7');
-	start(i+str+6,'img8','txt8');
-}	
-function start(i, namespan1,namespan2){
+
+var pageCount=1;
+var page;
+var tag;
+function checkNextPage(){
+  page=returnPage();
+  tag=returnTag();
+	if(page<pageCount)
+	{
+		page++;
+    window.location.hash='#'+tag+'#'+page; 
+    start(page,tag);
+	}else{
+		alert("Далее страниц нет");
+	};
+};
+function checkBackPage(){
+  page=returnPage();
+  tag=returnTag();
+	if(page>1)
+	{
+		page--;
+    window.location.hash='#'+tag+'#'+page;
+    start(page,tag);
+	}else{
+		alert("Ранее страниц нет");
+	};
+};
+$(window).bind('hashchange', function() { 
+   page=returnPage();
+   tag=returnTag();
+   start(page,tag); 
+}); 
+function returnTag(){
+  var tag="";
+  for (var i =1; i < window.location.hash.length; i++) {
+    if(window.location.hash[i]!='#'){
+      tag+=window.location.hash[i];
+    }else{
+        return tag;
+    }
+  };
+}
+function returnPage(){
+  for (var i =1; i < window.location.hash.length; i++) {
+    if(window.location.hash[i]=='#'){
+      return new Number(window.location.hash.substr(i+1,window.location.hash.length-1));
+    }
+  };
+}
+function setTagPage(){
+  if(window.location.hash==""){
+    window.location.hash="#all#1";
+  };
+}
+var page=1;
+function start(page,tag){
+    for (var i = 8; i >= 1; i--) {
+        document.getElementById('element'+i).innerHTML="";
+    };
    	xhttp=new XMLHttpRequest();
    	xhttp.open('GET','DataBase.json',true);
    	xhttp.send();
-   	//alert("Из шляпы достали "+i+" кролика!");
+   	
    	xhttp.onreadystatechange=function(){
       	if (xhttp.readyState==4){
         	//Принятое содержимое json файла должно быть вначале обработано функцией eval 
          	var json=eval( '('+xhttp.responseText+')' );
          	//Далее мы можем спокойно использовать данные
-         	//if ((i>=0) && (i<=13)){
-            	document.getElementById(namespan1).innerHTML='<img src="'+json.DataBase[i].image
-            	+'" width=300 height=200 class="ui-widget ui-corner-all"/>';
-         		document.getElementById(namespan2).innerHTML=json.DataBase[i].title;
-         	//}
-      	}
+         	if(tag=='all'){
+            var length=json.DataBase.length;
+         		pageCount=Math.ceil(length/8);
+
+         		document.getElementById('numberpage').innerHTML="---"+page+"-я-страница-из-"+pageCount+"---";
+            var i = page*8-1;
+            if(page==pageCount){
+              i-=8-length%8;
+            }
+         		for (; i>=(page-1)*8 ; i--) {
+              document.getElementById('element'+(i%8+1)).innerHTML=
+              '<a href="showElement.html#'+json.DataBase[length-1-i].way+'">'+
+                '<img src="content/images/'+json.DataBase[length-1-i].way+'/'+json.DataBase[length-1-i].way+'.jpg" width="200px" "height="auto" class="ui-widget ui-corner-all"/>'+
+                '<h4>'+json.DataBase[length-1-i].title+'</h4>'+
+              '</a>';
+              document.getElementById('element'+(i%8+1)).style.display = "block";
+         		};
+          }
+      	};
    	}
-   	
 }

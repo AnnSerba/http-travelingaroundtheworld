@@ -2,6 +2,7 @@
       <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <title>Путешествие по миру</title>
+            <link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
             <link rel="stylesheet" type="text/css" href="mystyle.css" />
             <!-- 1. Подключим библиотеку jQuery (без нее jQuery UI не будет работать) -->
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
@@ -11,27 +12,23 @@
             <!--  -->
             <script src="JavaScript.js"></script>
       </head>
-<body onload="returnpage();genereIelement(page);">
+<body onload="setTagPage(); page=returnPage(); tag=returnTag();start(page,tag);">
       <div id="container">
             <div id="navigation" class="ui-widget ui-corner-all">
-                  <a href="index.html" > 
-                        <img  src="http://mirputeshestvii.ru/uploads/images/publications/how_to_travel/travel.jpg" width="50" height="50"  >
+                  <div id='titleElement'> 
+                        <h1>
+                            ~ Путешествие по миру ~
+                        </h1>
+                  </div>
+                  <a href="http://travelingaroundtheworld.e3w.ru/" onclick=""> 
+                        <img  id="logo" src="/images/logo.png">
                   </a> 
+                  <div id="txtElement">
+                  </div>
             </div>
 
  
-            <div id="menu" class="ui-widget ui-corner-all">Меню
-                  <div id='buttons'>
-                        <div>
-                              <input type='button' value='Части света' onclick='start()'/>
-                        </div>
-                        <div>
-                              <input type='button' value='Сооружения' onclick='start()'/>
-                        </div>
-                        <div>
-                              <input type='button' value='Природа' onclick='start()'/>
-                        </div>
-                  </div>
+            <div id="menuleft" class="ui-widget ui-corner-all">Меню
                   
             </div>
  
@@ -39,13 +36,13 @@
                   <div id="rotator" class="ui-widget ui-corner-all">
                         <div class="show">
                               <div id ='list'>
-                                    <img src="images/1.jpg" class="ui-widget ui-corner-all" alt="pic1" width=100% height=100% />
+                                    <img src="images/1.jpg" class="ui-widget ui-corner-all" alt="pic1" width="100%" height="100%" />
                               </div>
                               <div id ='list' >
-                                    <img src="images/2.jpg" class="ui-widget ui-corner-all" alt="pic2" width=100% height=100% />
+                                    <img src="images/2.jpg" class="ui-widget ui-corner-all" alt="pic2" width="100%" height="100%" />
                               </div>
                               <div id ='list' >
-                                    <img src="images/3.jpg" class="ui-widget ui-corner-all" alt="pic3" width=100% height=100% /> 
+                                    <img src="images/3.jpg" class="ui-widget ui-corner-all" alt="pic3" width="100%" height="100%" /> 
                               </div>
                               
                         </div>
@@ -53,54 +50,100 @@
 
                   <div id ='preview'>
                         <div class="row">
-                              <div class="elementleft"> 
-                                    <div id='img1' class="img"></div>
-                                    <div id='txt1' class="txt"></div>
-                              </div>
-                              <div class="elementright"> 
-                                    <div id='img2' class="img"></div>
-                                    <div id='txt2' class="txt"></div>
-                              </div>   
-                        </div>
-                        <div class="row">
-                              <div class="elementleft"> 
-                                    <div id='img3' class="img"></div>
-                                    <div id='txt3' class="txt"></div>
-                              </div>
-                              <div class="elementright"> 
-                                    <div id='img4' class="img"></div>
-                                    <div id='txt4' class="txt"></div>
+                               <div id='element1' class="elementleft" style="display:none"> 
+                               </div>
+                              <div id='element2' class="elementright">    
                               </div> 
                         </div>
                         <div class="row">
-                              <div class="elementleft"> 
-                                    <div id='img5' class="img"></div>
-                                    <div id='txt5' class="txt"></div>
+                              <div id='element3' class="elementleft" style="display:none"> 
                               </div>
-                              <div class="elementright"> 
-                                    <div id='img6' class="img"></div>
-                                    <div id='txt6' class="txt"></div>
+                              <div id='element4' class="elementright">    
                               </div> 
                         </div>
                         <div class="row">
-                              <div class="elementleft"> 
-                                    <div id='img7' class="img"></div>
-                                    <div id='txt7' class="txt"></div>
+                              <div id='element5' class="elementleft" style="display:none"> 
                               </div>
-                              <div class="elementright">
-                                    <div id='img8' class="img"></div>
-                                    <div id='txt8' class="txt"></div>
-                              </div>  
+                              <div id='element6' class="elementright">    
+                              </div> 
                         </div>
-                      
-                        <input type='button' id='Back' value='Назад' width="50px" height="20px" class="pagebutton" onclick="page>1?{page--;genereIelement(page)};"/>
+                        <div class="row">
+                              <div id='element7' class="elementleft" style="display:none"> 
+                              </div>
+                              <div id='element8' class="elementright">    
+                              </div> 
+                        </div>
+
+                        <div id="clear">
+                        </div>
+                        <input type='button' id='Back'  value='Назад' width="50px" height="20px" class="pagebutton" onclick="checkBackPage()"/>
                         <span id='numberpage'class="pagebutton" width="50" height="20"></span>
-                        <input type='button' id='Next' value='Далее'width="50" height="20" class="pagebutton" onclick="page<3?{page++;genereIelement(page);}"/>
-                        
+                        <input type='button' id='Next'  value='Далее' width="50" height="20" class="pagebutton" onclick="checkNextPage()"/>
                   </div>
-                  
             </div>
- 
+            <div id="menuright" class="ui-widget ui-corner-all">
+                  <h2>
+                        <ul id="ddmenu">
+                              <li><a href="index.html" onclick="setCookie('teg','all')">Части света</a>
+                        <ul>
+                              <h4>
+                                    <li><a href="index.html" onclick="setCookie('teg','Азия')">Азия</a></li>
+                                    <li><a href="index.html" onclick="setCookie('teg','Австралия и Окиания')">Австралия и Окиания</a></li>
+                                    <li><a href="index.html" onclick="setCookie('teg','Африка')">Африка</a></li>
+                                    <li><a href="index.html" onclick="setCookie('teg','Европа')">Европа</a></li>
+                                    <li><a href="index.html" onclick="setCookie('teg','Америка')">Америка</a></li>
+                              </h4>
+                        </ul>
+                        <li><a href="index.html">Страны</a>
+                              <ul>
+                                    <h4>
+                                          <li><a href="index.html"onclick="setCookie('teg','Китай')">Китай</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Япония')">Япония</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Канада')">Канада</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Автсралия')">Автсралия</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Южная Америка')">Южная Америка</a></li>
+                                    </h4>
+                              </ul>
+                        </li>
+                        <li><a href="index.html"onclick="setCookie('teg','Азия')">Творения человека</a>
+                              <ul>
+                                    <h4>
+                                          <li><a href="index.html"onclick="setCookie('teg','Деревни и Города')">Деревни и города</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Дороги и улицы')">Дороги и улицы</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Дворцы и замки')">Дворцы и замки</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Здания')">Здания</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Сооружения')">Сооружения</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Храмы и церкви')">Храмы и церкви</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Мосты')">Мосты</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Сады и парки')">Сады и парки</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Музеи')">Музеи</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Маяки')">Маяки</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Скульптуры и статуи')">Скульптуры и статуи</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Другие красоты')">Другие красоты</a></li>
+                                    </h4>
+                              </ul>
+                        </li>
+                        <li><a href="index.html"onclick="setCookie('teg','Азия')">Природа</a>
+                              <ul>
+                                    <h4>
+                                          <li><a href="index.html"onclick="setCookie('teg','Водоёмы')">Водоёмы</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Водопады')">Водопады</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Леса')">Леса</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Возвышенности')">Возвышенности</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Пустыни')">Пустыни</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Острова')">Острова</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Сады и парки')">Сады и парки</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Впадины')">Впадины</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Ланшафт')">Ланшафт</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Вулканы и гейзеры')">Вулканы и гейзеры</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Пещеры')">Пещеры</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Пляжи')">Пляжи</a></li>
+                                          <li><a href="index.html"onclick="setCookie('teg','Другие красоты')">Другие красоты</a></li>
+                                     </h4>
+                               </ul>
+                         </li>
+                  </h2>
+            </div>
             <div id="clear">
  
             </div>
