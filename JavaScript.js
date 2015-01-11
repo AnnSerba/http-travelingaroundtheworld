@@ -108,7 +108,12 @@ function setTagPage(){
     window.location.hash="#all#1";
   };
 }
-var page=1;
+function setPageTag(page,tag){
+  var hash="";
+  hash=hash.concat("#",tag,"#",page);
+  window.location.hash=hash;
+  start(page,tag);
+}
 function start(page,tag){
     for (var i = 8; i >= 1; i--) {
         document.getElementById('element'+i).innerHTML="";
@@ -133,12 +138,85 @@ function start(page,tag){
             }
          		for (; i>=(page-1)*8 ; i--) {
               document.getElementById('element'+(i%8+1)).innerHTML=
-              '<a href="showElement.html#'+json.DataBase[length-1-i].way+'">'+
-                '<img src="content/images/'+json.DataBase[length-1-i].way+'/'+json.DataBase[length-1-i].way+'.jpg" width="200px" "height="auto" class="ui-widget ui-corner-all"/>'+
+              '<a href="showElement.html#'+json.DataBase[length-1-i].title+'">'+
+                '<img src="images/'+json.DataBase[length-1-i].way+'/'+json.DataBase[length-1-i].way+'.jpg" width="200px" "height="auto" class="ui-widget ui-corner-all"/>'+
                 '<h4>'+json.DataBase[length-1-i].title+'</h4>'+
               '</a>';
               document.getElementById('element'+(i%8+1)).style.display = "block";
          		};
+          }else {
+            var arrayTitle=[];
+            var arrayWay=[];
+            arrayTag=tag.split(':');
+            if(arrayTag[0]=="Части cвета"){
+              for (var i = 0,j=0; i < json.DataBase.length; i++) {
+                if(json.DataBase[i].pathWorld==arrayTag[1]){
+                  arrayTitle[j]=json.DataBase[i].title;
+                  arrayWay[j]=json.DataBase[i].way;
+                  j++;
+                }
+              };
+            }else if(arrayTag[0]=="Страны"){
+              for (var i = 0,j=0; i < json.DataBase.length; i++) {
+                if(json.DataBase[i].country==arrayTag[1]){
+                  arrayTitle[j]=json.DataBase[i].title;
+                  arrayWay[j]=json.DataBase[i].way;
+                  j++;
+                }
+              };
+            }else if(arrayTag[0]=="Творения человека"){
+              for (var i = 0,j=0; i < json.DataBase.length; i++) {
+                if(json.DataBase[i].human.indexOf(arrayTag[1])>=0){
+                  arrayTitle[j]=json.DataBase[i].title;
+                  arrayWay[j]=json.DataBase[i].way;
+                  j++;
+                }
+              };
+            }else if(arrayTag[0]=="Природа"){
+              for (var i = 0,j=0; i < json.DataBase.length; i++) {
+                if(json.DataBase[i].nature.indexOf(arrayTag[1])>=0){
+                  arrayTitle[j]=json.DataBase[i].title;
+                  arrayWay[j]=json.DataBase[i].way;
+                  j++;
+                }
+              };
+            }else if(arrayTag[0]=="Люди"){
+              for (var i = 0,j=0; i < json.DataBase.length; i++) {
+                if(json.DataBase[i].people.indexOf(arrayTag[1])>=0){
+                  arrayTitle[j]=json.DataBase[i].title;
+                  arrayWay[j]=json.DataBase[i].way;
+                  j++;
+                }
+              };
+            }else if(arrayTag[0]=="Туризм"){
+              for (var i = 0,j=0; i < json.DataBase.length; i++) {
+                if(json.DataBase[i].tourism.indexOf(arrayTag[1])>=0){
+                  arrayTitle[j]=json.DataBase[i].title;
+                  arrayWay[j]=json.DataBase[i].way;
+                  j++;
+                }
+              };
+            }else{
+              alert("Ошибка перехода на страницу #"+arrayTag[0]+":"+arrayTag[1]+"#"+page);
+            }
+            var length=arrayTitle.length;
+            pageCount=Math.ceil(length/8);
+
+            document.getElementById('numberpage').innerHTML="---"+page+"-я-страница-из-"+pageCount+"---";
+            if(length>0){
+              var i = page*8-1;
+              if(page==pageCount){
+                i-=8-length%8;
+              }
+              for (; i>=(page-1)*8 ; i--) {
+                document.getElementById('element'+(i%8+1)).innerHTML=
+                  '<a href="showElement.html#'+arrayTitle[length-1-i]+'">'+
+                    '<img src="images/'+arrayWay[length-1-i]+'/'+arrayWay[length-1-i]+'.jpg" width="200px" "height="auto" class="ui-widget ui-corner-all"/>'+
+                    '<h4>'+arrayTitle[length-1-i]+'</h4>'+
+                  '</a>';
+                document.getElementById('element'+(i%8+1)).style.display = "block";
+              };
+            }
           }
       	};
    	}

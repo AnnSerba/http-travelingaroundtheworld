@@ -13,7 +13,7 @@ function start(content){
          	var json=eval( '('+xhttp.responseText+')' );
          	//Далее мы можем спокойно использовать данные
         	for (var i = json.DataBase.length - 1; i >= 0; i--) {
-        		if(json.DataBase[i].way==content){
+        		if(json.DataBase[i].title==content){
 
         			document.getElementById('titleElement').innerHTML=
         				'<h1>'+json.DataBase[i].title+'</h1>';

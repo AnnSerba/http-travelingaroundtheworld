@@ -84,64 +84,82 @@
             <div id="menuright" class="ui-widget ui-corner-all">
                   <h2>
                         <ul id="ddmenu">
-                              <li><a href="index.html" onclick="setCookie('teg','all')">Части света</a>
-                        <ul>
-                              <h4>
-                                    <li><a href="index.html" onclick="setCookie('teg','Азия')">Азия</a></li>
-                                    <li><a href="index.html" onclick="setCookie('teg','Австралия и Окиания')">Австралия и Окиания</a></li>
-                                    <li><a href="index.html" onclick="setCookie('teg','Африка')">Африка</a></li>
-                                    <li><a href="index.html" onclick="setCookie('teg','Европа')">Европа</a></li>
-                                    <li><a href="index.html" onclick="setCookie('teg','Америка')">Америка</a></li>
-                              </h4>
-                        </ul>
-                        <li><a href="index.html">Страны</a>
-                              <ul>
-                                    <h4>
-                                          <li><a href="index.html"onclick="setCookie('teg','Китай')">Китай</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Япония')">Япония</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Канада')">Канада</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Автсралия')">Автсралия</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Южная Америка')">Южная Америка</a></li>
-                                    </h4>
-                              </ul>
-                        </li>
-                        <li><a href="index.html"onclick="setCookie('teg','Азия')">Творения человека</a>
-                              <ul>
-                                    <h4>
-                                          <li><a href="index.html"onclick="setCookie('teg','Деревни и Города')">Деревни и города</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Дороги и улицы')">Дороги и улицы</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Дворцы и замки')">Дворцы и замки</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Здания')">Здания</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Сооружения')">Сооружения</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Храмы и церкви')">Храмы и церкви</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Мосты')">Мосты</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Сады и парки')">Сады и парки</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Музеи')">Музеи</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Маяки')">Маяки</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Скульптуры и статуи')">Скульптуры и статуи</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Другие красоты')">Другие красоты</a></li>
-                                    </h4>
-                              </ul>
-                        </li>
-                        <li><a href="index.html"onclick="setCookie('teg','Азия')">Природа</a>
-                              <ul>
-                                    <h4>
-                                          <li><a href="index.html"onclick="setCookie('teg','Водоёмы')">Водоёмы</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Водопады')">Водопады</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Леса')">Леса</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Возвышенности')">Возвышенности</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Пустыни')">Пустыни</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Острова')">Острова</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Сады и парки')">Сады и парки</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Впадины')">Впадины</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Ланшафт')">Ланшафт</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Вулканы и гейзеры')">Вулканы и гейзеры</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Пещеры')">Пещеры</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Пляжи')">Пляжи</a></li>
-                                          <li><a href="index.html"onclick="setCookie('teg','Другие красоты')">Другие красоты</a></li>
-                                     </h4>
-                               </ul>
-                         </li>
+                              <li><a>Части света</a>
+                                    <ul>
+                                          <h4>
+                                          <li><a onclick="setPageTag(1,'Части cвета:Азия');">Азия</a></li>
+                                          <li><a onclick="setPageTag(1,'Части cвета:Австралия и Окиания');">Австралия и Окиания</a></li>
+                                          <li><a onclick="setPageTag(1,'Части cвета:Африка');">Африка</a></li>
+                                          <li><a onclick="setPageTag(1,'Части cвета:Европа');">Европа</a></li>
+                                          <li><a onclick="setPageTag(1,'Части cвета:Америка');">Америка</a></li>
+                                          </h4>
+                                    </ul>
+                              </li>
+                              <li><a>Страны</a>
+                                    <ul>
+                                          <h4>
+                                          <li><a onclick="setPageTag(1,'Страны:Китай')">Китай</a></li>
+                                          <li><a onclick="setPageTag(1,'Страны:Япония')">Япония</a></li>
+                                          <li><a onclick="setPageTag(1,'Страны:Канада')">Канада</a></li>
+                                          <li><a onclick="setPageTag(1,'Страны:Автсралия')">Автсралия</a></li>
+                                          <li><a onclick="setPageTag(1,'Страны:Южная Америка')">Южная Америка</a></li>
+                                          </h4>
+                                    </ul>
+                              </li>
+                              <li><a>Творения человека</a>
+                                    <ul>
+                                          <h4>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Деревни и Города')">Деревни и города</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Дороги и улицы')">Дороги и улицы</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Дворцы и замки')">Дворцы и замки</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Здания')">Здания</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Сооружения')">Сооружения</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Храмы и церкви')">Храмы и церкви</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Мосты')">Мосты</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Сады и парки')">Сады и парки</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Музеи')">Музеи</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Маяки')">Маяки</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Скульптуры и статуи')">Скульптуры и статуи</a></li>
+                                          <li><a onclick="setPageTag(1,'Творения человека:Другие красоты')">Другие красоты</a></li>
+                                          </h4>
+                                    </ul>
+                              </li>
+                              <li><a>Природа</a>
+                                    <ul>
+                                          <h4>
+                                          <li><a onclick="setPageTag(1,'Природа:Водоёмы')">Водоёмы</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Водопады')">Водопады</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Леса')">Леса</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Возвышенности')">Возвышенности</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Пустыни')">Пустыни</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Острова')">Острова</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Сады и парки')">Сады и парки</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Впадины')">Впадины</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Ланшафт')">Ланшафт</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Вулканы и гейзеры')">Вулканы и гейзеры</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Пещеры')">Пещеры</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Пляжи')">Пляжи</a></li>
+                                          <li><a onclick="setPageTag(1,'Природа:Другие красоты')">Другие красоты</a></li>
+                                          </h4>
+                                    </ul>
+                              </li>
+                               <li><a>Люди</a>
+                                    <ul>
+                                          <h4>
+                                          <li><a onclick="setPageTag(1,'Люди:Традиции и обычаи')">Традиции и обычаи</a></li>
+                                          <li><a onclick="setPageTag(1,'Люди:Особенности культуры и нации')">Особенности культуры и нации</a></li>
+                                          </h4>
+                                    </ul>
+                              </li>
+                              <li><a>Туризм</a>
+                                    <ul>
+                                          <h4>
+                                          <li><a onclick="setPageTag(1,'Туризм:Оформления виз')">Оформления виз</a></li>
+                                          <li><a onclick="setPageTag(1,'Туризм:Отели и хостелы')">Отели и хостелы</a></li>
+                                          </h4>
+                                    </ul>
+                              </li>
+                        </ul> 
                   </h2>
             </div>
             <div id="clear">
